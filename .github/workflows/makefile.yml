@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup python 3.8
+    - name: Setup python 3.9.21
       uses: actions/setup-python@v1
       with: 
-        python-version: 3.8
+        python-version: 3.9.21
       
     - name: Install dependencies
       run: make install
