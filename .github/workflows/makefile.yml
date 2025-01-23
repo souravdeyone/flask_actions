@@ -14,14 +14,19 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: configure
-      run: ./configure
-
+    - name: Setup python 3.8
+      uses: actions/setup-python@v1
+      with: 
+        python-version: 3.8
+      
     - name: Install dependencies
-      run: make
+      run: make install
 
-    - name: Run check
-      run: make check
+    - name: Lint with python
+      run: make lint
 
-    - name: Run distcheck
-      run: make distcheck
+    - name: Test with pytest
+      run: make test
+
+    - name: Fromat code with Python black
+      run: make format
